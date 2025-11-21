@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class ElectricityBillEstimator {
+    public static void main(String[] args) {
+        
+        // Create Scanner object to accept user input
+        Scanner input = new Scanner(System.in);
+
+        // --- INPUT SECTION ---
+        System.out.println("=== ELECTRICITY BILL ESTIMATOR ===");
+        
+        System.out.print("Enter your name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter account number: ");
+        String accountNumber = input.nextLine();
+
+        System.out.print("Enter monthly electricity usage (kWh): ");
+        double usage = input.nextDouble();
+
+        // --- PROCESSING SECTION ---
+        double ratePerKwh = 0.50;   // RM0.50 per kWh
+        double totalCost = usage * ratePerKwh;
+
+        // Apply discount if usage is below 200 kWh (example conditional)
+        double discount = 0.0;
+        if (usage < 200) {
+            discount = totalCost * 0.05;  // 5% discount
+        }
+
+        double finalBill = totalCost - discount;
+
+        // --- OUTPUT SECTION ---
+        System.out.println("\n=== BILL SUMMARY ===");
+        System.out.println("Name: " + name);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Usage: " + usage + " kWh");
+        System.out.println("Unit Rate: RM " + ratePerKwh);
+        System.out.println("Total Cost (before discount): RM " + totalCost);
+        System.out.println("Discount: RM " + discount);
+        System.out.println("Final Amount to Pay: RM " + finalBill);
+        
+        System.out.println("\nThank you for using the Electricity Bill Estimator!");
+
+        input.close();
+    }
+}
